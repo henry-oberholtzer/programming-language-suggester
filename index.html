@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/scripts.js"></script>
+    <title>Programming Language Suggester</title>
+</head>
+<body>
+    <div id="quiz">
+        <h1>Programming Language Suggester</h1>
+        <div id="description">
+            <p>Unsure of what programming language to learn? This quiz may help steer you in the right direction!</p>
+        </div>
+        <form id="form">
+            <div class="question 1">
+                <legend>Readable or Unreadable?</legend>
+                <div>
+                    <input type="radio" name="uR" id="readable" value="r" checked>
+                    <label for="readable">Readable</label>
+                </div>
+                <div>
+                    <input type="radio" name="uR" id="unreadable" value="u">
+                    <label for="unreadable">Unreadable</label>
+                </div>
+            </div>
+            <div class="question 2">
+                <legend>Objects or Either?</legend>
+                <div>
+                    <input type="radio" name="oE" id="object" value="o" checked>
+                    <label for="object">Object Oriented</label>
+                </div>
+                <div>
+                    <input type="radio" name="oE" id="either" value="e">
+                    <label for="either">Either</label>
+                </div>
+            </div>
+            <div class="question 3">
+                <legend>Static or Dynamically Typed?</legend>
+                <div>
+                    <input type="radio" name="sD" id="static" value="s" checked>
+                    <label for="static">Static</label>
+                </div>
+                <div>
+                    <input type="radio" name="sD" id="dynamic" value="d">
+                    <label for="dynamic">Dynamic</label>
+                </div>
+            </div>
+            <div class="question 4">
+                <legend>Front End or Back End?</legend>
+                <div>
+                    <input type="radio" name="fB" id="frontEnd" value="f" checked>
+                    <label for="frontEnd">Front End</label>
+                </div>
+                <div>
+                    <input type="radio" name="fB" id="backEnd" value="b">
+                    <label for="backEnd">Back End</label>
+                </div>
+            </div>
+            <div class="question 5">
+                <legend>Apple or Microsoft?</legend>
+                <div>
+                    <input type="radio" name="mA" id="microsoft" value="m" checked>
+                    <label for="microsoft">Microsoft</label>
+                </div>
+                <div>
+                    <input type="radio" name="mA" id="apple" value="a">
+                    <label for="apple">Apple</label>
+                </div>
+            </div>
+            <button type="submit">Suggest!</button>
+        </form>
+        <div id="result">
+            <h2>Your Suggested Language Is:</h2>
+            <p id="resultText"></p>
+        </div>
+    </div>
+</body>
+</html>
