@@ -5,6 +5,10 @@ function refreshPage() {
     window.location.reload();
 }
 // // Question Retrieval
+function revealQuestion(e) {
+    e.preventDefault();
+}
+
 function suggestLanguage(e) {
     e.preventDefault();
 
@@ -65,6 +69,14 @@ function suggestLanguage(e) {
 
 window.addEventListener("load", function () {
     document.getElementById("result").setAttribute("class", "hidden");
+    document.getElementById("1").setAttribute("class", "question hidden");
+    document.getElementById("2").setAttribute("class", "question hidden");
+    document.getElementById("3").setAttribute("class", "question hidden");
+    document.getElementById("4").setAttribute("class", "question hidden");
+    document.getElementById("5").setAttribute("class", "question hidden");
+    document.getElementById("6").setAttribute("class", "button-box hidden");
+    
     const form = document.getElementById("form");
+    form.addEventListener("change", revealQuestion);
     form.addEventListener("submit", suggestLanguage);
 });
