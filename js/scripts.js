@@ -1,10 +1,10 @@
 // Business Logic
 
+// // Reloads Page
 function refreshPage() {
     window.location.reload();
 }
 // // Question Retrieval
-
 function suggestLanguage(e) {
     e.preventDefault();
 
@@ -33,6 +33,7 @@ function suggestLanguage(e) {
         } return "Swift";
     };
 
+// // Sends Descriptions
     function descHandler(result) {
         console.log(result);
         if (result === "Ruby") {
