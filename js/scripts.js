@@ -1,6 +1,8 @@
 // Business Logic
 
-
+function refreshPage() {
+    window.location.reload();
+}
 // // Question Retrieval
 
 function suggestLanguage(e) {
@@ -15,6 +17,7 @@ function suggestLanguage(e) {
     function questionBranches(uR, oE, mA, sD, fB) {
         if (uR === "r") {
             if (oE === "o") {
+                desc = "about rudy";
                 return "Ruby";
             } else if (sD === "s") {
                 return "Go";
@@ -29,8 +32,31 @@ function suggestLanguage(e) {
             return "C#";
         } return "Swift";
     };
-    document.getElementById("resultText").innerText = questionBranches(uR, oE, mA, sD, fB);
+
+    function descHandler(result) {
+        console.log(result);
+        if (result === "Ruby") {
+            return "You may appreciate Ruby for its natural syntax, object oriented programming as well as it's flexible typing style. In addition, Ruby is a great language for Back End programming, but can also handle front end work!";
+        } else if (result === "Go") {
+            return "Go is a highly readable language developed by Google. It can be object oriented, but situates itself somewhere between. It's statically typed and focuses on safe programming. It is primarily used as a robust language for back end programming.";
+        } else if (result === "Python") {
+            return "Python was created to be so easy to read, and can really do it all! It works with functions or object oriented programming. It is dynamically typed and is therefore super flexible, and is a workhorse for both front and and back-end applications.";
+        } else if (result === "Rust") {
+            return "Rust is a statically typed language, that is quite similar to the C programming language. It can handle object and function oriented programming, and is a solid back end language, especially for video games and AR applications.";
+        } else if (result === "JavaScript") {
+            return "JavaScript rules the internet these days. If you want to do front end development, it's simply a must! Object oriented, and although not as natural to read, it's very flexible and is widely supported!";
+        } else if (result === "C#") {
+            return "C# was developed by Microsoft, and is quite similar to JavaScript. However, it is statically typed, and used for back end applications. Many major game studios make use of C# these days, especially with the Unity engine.";
+        } else if (result === "Swift") {
+            return "Apple's back end programming language, Swift is object oriented, statically typed and not quite as natural to read as some others, but is a must if you have interested in Apple hardware or software development!";
+        }   return "That's odd! You broke something I didn't anticipate.";
+    }
+    let result = questionBranches(uR, oE, mA, sD, fB);
+    console.log(descHandler(result));
+    document.getElementById("resultText").innerText = result;
+    document.getElementById("resultDesc").innerText = descHandler(result);
     document.getElementById("result").removeAttribute("class");
+    document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start"});
 
 }
 
