@@ -30,11 +30,14 @@ function suggestLanguage(e) {
         } return "Swift";
     };
     document.getElementById("resultText").innerText = questionBranches(uR, oE, mA, sD, fB);
+    document.getElementById("result").removeAttribute("class");
+
 }
 
 // UI Logic
 
 window.addEventListener("load", function () {
+    document.getElementById("result").setAttribute("class", "hidden");
     const form = document.getElementById("form");
     form.addEventListener("submit", suggestLanguage);
 });
