@@ -3,20 +3,45 @@
 // // Reloads Page
 function refreshPage() {
     window.location.reload();
+    document.querySelector("body").scrollIntoView({ behavior: "smooth", block: "start"})
 }
 // // Question Retrieval
 function revealQuestion(e) {
     e.preventDefault();
-}
+    console.log("ok!");
+    if (document.getElementById("2").getAttribute("class") === "question hidden") {
+        document.getElementById("2").setAttribute("class", "question");
+        document.getElementById("1").removeEventListener("change", revealQuestion);
+        console.log("1");
+        return;
+    } else if (document.getElementById("3").getAttribute("class") === "question hidden") {
+        document.getElementById("3").setAttribute("class", "question");
+        document.getElementById("2").removeEventListener("change", revealQuestion);
+        console.log("2");
+        return;
+    } else if (document.getElementById("4").getAttribute("class") === "question hidden") {
+        document.getElementById("4").setAttribute("class", "question");
+        document.getElementById("3").removeEventListener("change", revealQuestion);
+        return;
+    } else if (document.getElementById("5").getAttribute("class") === "question hidden") {
+        document.getElementById("5").setAttribute("class", "question");
+        document.getElementById("4").removeEventListener("change", revealQuestion);
+        return;
+    } else if (document.getElementById("6").getAttribute("class") === "button-box hidden") {
+        document.getElementById("6").setAttribute("class", "button-box");
+        document.getElementById("5").removeEventListener("change", revealQuestion);
+        return;
+    }
+};
 
 function suggestLanguage(e) {
     e.preventDefault();
 
     const uR = document.querySelector("input[name='uR']:checked").value;
     const oE = document.querySelector("input[name='oE']:checked").value;
-    const sD = document.querySelector("input[name='sD']:checked").value;
     const fB = document.querySelector("input[name='uR']:checked").value;
     const mA = document.querySelector("input[name='mA']:checked").value;
+    const sD = document.querySelector("input[name='sD']:checked").value;
 
     function questionBranches(uR, oE, mA, sD, fB) {
         if (uR === "r") {
@@ -69,14 +94,22 @@ function suggestLanguage(e) {
 
 window.addEventListener("load", function () {
     document.getElementById("result").setAttribute("class", "hidden");
-    document.getElementById("1").setAttribute("class", "question hidden");
+    document.getElementById("1").addEventListener("change", revealQuestion);
+    document.getElementById("2").addEventListener("change", revealQuestion);
+    document.getElementById("3").addEventListener("change", revealQuestion);
+    document.getElementById("4").addEventListener("change", revealQuestion);
+    document.getElementById("5").addEventListener("change", revealQuestion);
     document.getElementById("2").setAttribute("class", "question hidden");
     document.getElementById("3").setAttribute("class", "question hidden");
     document.getElementById("4").setAttribute("class", "question hidden");
     document.getElementById("5").setAttribute("class", "question hidden");
     document.getElementById("6").setAttribute("class", "button-box hidden");
-    
+    document.querySelector("input[name='oE']").checked = false;
+    document.querySelector("input[name='sD']").checked = false;
+    document.querySelector("input[name='fB']").checked = false;
+    document.querySelector("input[name='uR']").checked = false;
+    document.querySelector("input[name='mA']").checked = false;
+
     const form = document.getElementById("form");
-    form.addEventListener("change", revealQuestion);
     form.addEventListener("submit", suggestLanguage);
 });
