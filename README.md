@@ -22,6 +22,7 @@ The form accepts what amount to binary inputs from the user, and using JavaScrip
 
 * Questions higher in the quiz will cut off how meaningful later questions are, due to the branching structure
 * Webpage not fully responsive
+* On "again" will not fully remove checked options, but does not affect quiz interactivity
 
 ## License
 
